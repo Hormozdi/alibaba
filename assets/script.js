@@ -33,7 +33,7 @@ Vue.createApp({
       } else {
         const items = getter(this.searchValue);
         this.searchResult = items.filter(
-          (el) => this.selectedItems.indexOf(el) === -1
+          (el) => !this.selectedItems.includes(Vue.reactive(el))
         );
         if (this.searchResult.length === 1) {
           this.addSelectedEment();
